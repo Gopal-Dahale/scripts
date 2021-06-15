@@ -11,7 +11,7 @@ if(".py" in sys.argv[0]):
 
 if(len(sys.argv) < 3 or len(sys.argv) > 5):
 	print(
-		"Arguments:\n[0] - URL BASE\n[1] - Base path\n[2] - Allowed filenames\n[3] - Files or folders to ignore (optional)\n[4] - Folders to ignore, but include children (optional)")
+		"Arguments:\n[0] - Repo Name\n[1] - Base path\n[2] - Allowed filenames\n[3] - Files or folders to ignore (optional)\n[4] - Folders to ignore, but include children (optional)")
 	exit(1)
 
 ignore = []
@@ -25,7 +25,9 @@ if(len(sys.argv) == 4):
 if(len(sys.argv) == 5):
 	skip = sys.argv[4].split(",")
 
-URL_BASE = sys.argv[0] 
+URL_BASE = "https://github.com/Gopal-Dahale/" + \
+	sys.argv[0] + "/blob/main"
+ 
 
 def good_file_paths(top_dir: str = ".") -> Iterator[str]:
 	for dir_path, dir_names, filenames in os.walk(top_dir):
